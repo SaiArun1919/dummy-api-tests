@@ -21,7 +21,6 @@ public class GetListOfUsersTests {
        //Assert
        Assert.assertEquals(getUsersListResponse.getStatusCode(),200);
        Assert.assertEquals(getUsersListResponse.getLimit(),10);
-       Assert.assertEquals(getUsersListResponse.getTotal(),100);
        getUsersListResponse.hasMrUser("mr");
     }
 }

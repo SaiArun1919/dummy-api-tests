@@ -27,6 +27,11 @@ public class CreateUserRequestBody {
             this.email = String.format("%s@gmail.com", UUID.randomUUID());
         }
 
+        public Builder email(String email){
+             this.email = email;
+             return this;
+        }
+
         public CreateUserRequestBody build() {
             CreateUserRequestBody createUserRequestBody = new CreateUserRequestBody(this);
             return createUserRequestBody;
