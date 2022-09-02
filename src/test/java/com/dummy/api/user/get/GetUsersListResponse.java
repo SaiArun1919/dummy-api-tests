@@ -1,10 +1,10 @@
-package users.get;
-
-import java.util.List;
+package com.dummy.api.user.get;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.testng.Assert;
+
+import java.util.List;
 
 @Getter
 public class GetUsersListResponse{

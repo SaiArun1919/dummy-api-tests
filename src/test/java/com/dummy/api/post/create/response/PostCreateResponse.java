@@ -1,8 +1,8 @@
-package users.post.response;
+package com.dummy.api.post.create.response;
 
+import com.dummy.api.post.create.PostCreateRequestBody;
 import lombok.Data;
 import org.testng.Assert;
-import users.post.PostCreateRequestBody;
 
 import java.util.List;
 

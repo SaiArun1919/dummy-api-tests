@@ -1,10 +1,7 @@
-package users.create.response;
+package com.dummy.api.user.create.response;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.testng.Assert;
-
-import java.util.stream.Collectors;
 
 @Getter
 public class CreateUserErrorResponse{

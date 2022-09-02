@@ -1,9 +1,12 @@
+package com.dummy.api.tests;
+
+import com.dummy.api.user.UserClient;
+import com.dummy.api.user.create.CreateUserRequestBody;
+import com.dummy.api.user.create.response.CreateUserErrorResponse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import users.UserClient;
-import users.create.CreateUserRequestBody;
-import users.create.response.CreateUserErrorResponse;
+
 
 public class CreateUserNegativeTests {
 

@@ -1,10 +1,10 @@
-package users.create.response;
+package com.dummy.api.user.create.response;
 
 
+import com.dummy.api.user.create.CreateUserRequestBody;
 import lombok.Getter;
 import lombok.Setter;
 import org.testng.Assert;
-import users.create.CreateUserRequestBody;
 
 @Getter
 public class CreateUserResponse{
