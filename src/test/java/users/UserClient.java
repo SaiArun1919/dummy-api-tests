@@ -11,12 +11,12 @@ import static io.restassured.RestAssured.given;
 
 public class UserClient {
 
-    public GetUsersListResponse getList(int limit) {
+    public GetUsersListResponse getList(String key,int value) {
 
         Response response =
                 given()
                         .header("app-id", "6305fad76cd510050784ce73")
-                        .queryParam("limit", limit)
+                        .queryParam(key, value)
                         .when()
                         .get("https://dummyapi.io/data/v1/user");
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.testng.Assert;
 
 @Getter
 public class GetUsersListResponse{
@@ -21,6 +22,10 @@ public class GetUsersListResponse{
 				.findAny()
 				.isPresent();
 		return mrTitle;
+	}
+
+	public void assertTotalAccountsPresent(){
+		Assert.assertEquals(data.size(),total);
 	}
 
 	public boolean hasMrsUser(String title){

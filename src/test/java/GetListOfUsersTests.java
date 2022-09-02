@@ -16,11 +16,22 @@ public class GetListOfUsersTests {
     @Test
     public void getTheListOfAllUsers(){
        //Act
-       GetUsersListResponse getUsersListResponse = userClient.getList(10);
+       GetUsersListResponse getUsersListResponse = userClient.getList("limit",10);
 
        //Assert
        Assert.assertEquals(getUsersListResponse.getStatusCode(),200);
        Assert.assertEquals(getUsersListResponse.getLimit(),10);
        getUsersListResponse.hasMrUser("mr");
+    }
+
+    @Test
+    public void getTheListOfUsersCreatedByCurrentUser(){
+        //Act
+        GetUsersListResponse getUsersListResponse = userClient.getList("created",1);
+
+        //Assert
+        Assert.assertEquals(getUsersListResponse.getStatusCode(),200);
+        Assert.assertEquals(getUsersListResponse.getLimit(),20);
+        getUsersListResponse.assertTotalAccountsPresent();
     }
 }
