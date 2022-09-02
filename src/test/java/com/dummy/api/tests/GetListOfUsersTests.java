@@ -1,8 +1,10 @@
+package com.dummy.api.tests;
+import com.dummy.api.user.UserClient;
+import com.dummy.api.user.get.GetUsersListResponse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import users.UserClient;
-import users.get.GetUsersListResponse;
+
 
 public class GetListOfUsersTests {
 
@@ -17,7 +19,6 @@ public class GetListOfUsersTests {
     public void getTheListOfAllUsers(){
        //Act
        GetUsersListResponse getUsersListResponse = userClient.getList("limit",10);
-
        //Assert
        Assert.assertEquals(getUsersListResponse.getStatusCode(),200);
        Assert.assertEquals(getUsersListResponse.getLimit(),10);
@@ -28,7 +29,6 @@ public class GetListOfUsersTests {
     public void getTheListOfUsersCreatedByCurrentUser(){
         //Act
         GetUsersListResponse getUsersListResponse = userClient.getList("created",1);
-
         //Assert
         Assert.assertEquals(getUsersListResponse.getStatusCode(),200);
         Assert.assertEquals(getUsersListResponse.getLimit(),20);

@@ -1,9 +1,8 @@
-package users.post;
+package com.dummy.api.post.create;
 
 import lombok.Data;
 
-public @Data
-class PostCreateRequestBody {
+public @Data class PostCreateRequestBody {
     private String owner;
     private String image;
     private String text;
