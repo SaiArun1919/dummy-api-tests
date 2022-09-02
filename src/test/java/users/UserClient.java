@@ -3,6 +3,7 @@ package users;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import users.create.CreateUserRequestBody;
+import users.create.response.CreateUserErrorResponse;
 import users.create.response.CreateUserResponse;
 import users.get.GetUsersListResponse;
 
@@ -47,5 +48,12 @@ public class UserClient {
         CreateUserResponse createUserResponse = response.as(CreateUserResponse.class);
         createUserResponse.setStatusCode(response.getStatusCode());
         return createUserResponse;
+    }
+
+    public CreateUserErrorResponse createUserWithError(CreateUserRequestBody requestBody){
+        Response response = create(requestBody);
+        CreateUserErrorResponse errorResponse = response.as(CreateUserErrorResponse.class);
+        errorResponse.setStatusCode(response.getStatusCode());
+        return errorResponse;
     }
 }
