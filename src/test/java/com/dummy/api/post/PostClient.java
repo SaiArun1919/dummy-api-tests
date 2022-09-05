@@ -23,6 +23,22 @@ public class PostClient {
         return response;
     }
 
+    public PostCreateResponse getDetails(String id){
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("app-id", "6305fad76cd510050784ce73")
+                .pathParam("id", id)
+                .when()
+                .get("https://dummyapi.io/data/v1/post/{id}");
+
+        response.then().log().body();
+
+        int statusCode = response.getStatusCode();
+        PostCreateResponse postCreateResponse = response.as(PostCreateResponse.class);
+        postCreateResponse.setStatusCode(statusCode);
+        return postCreateResponse;
+    }
+
     public PostCreateResponse createPost(PostCreateRequestBody postCreateRequestBody) {
         Response response = postCreate(postCreateRequestBody);
         PostCreateResponse postCreateResponse = response.as(PostCreateResponse.class);

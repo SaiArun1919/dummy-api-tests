@@ -21,4 +21,9 @@ public class PostHelper {
 
         return postCreateResponse;
     }
+
+    public PostCreateResponse getPostDetails(String post_id){
+        PostCreateResponse details = postClient.getDetails(post_id);
+        return details;
+    }
 }
