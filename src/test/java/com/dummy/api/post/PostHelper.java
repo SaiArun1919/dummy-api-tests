@@ -1,7 +1,9 @@
 package com.dummy.api.post;
 
 import com.dummy.api.post.create.PostCreateRequestBody;
-import com.dummy.api.post.create.response.PostCreateResponse;
+import com.dummy.api.post.create.response.PostDetailsResponse;
+import com.dummy.api.post.delete.DeletePostResponse;
+import com.dummy.api.post.get.GetPostDetailsErrorResponse;
 import com.google.inject.Inject;
 
 public class PostHelper {
@@ -9,21 +11,31 @@ public class PostHelper {
     @Inject
     private PostClient postClient;
 
-    public PostCreateResponse createNewPost() {
+    public PostDetailsResponse createNewPost() {
         PostCreateRequestBody postCreateRequestBody = new PostCreateRequestBody.Builder().build();
 
         return createNewPost(postCreateRequestBody);
     }
 
-    public PostCreateResponse createNewPost(PostCreateRequestBody requestBody) {
+    public PostDetailsResponse createNewPost(PostCreateRequestBody requestBody) {
 
-        PostCreateResponse postCreateResponse = postClient.createPost(requestBody);
+        PostDetailsResponse postDetailsResponse = postClient.createPost(requestBody);
 
-        return postCreateResponse;
+        return postDetailsResponse;
     }
 
-    public PostCreateResponse getPostDetails(String post_id){
-        PostCreateResponse details = postClient.getDetails(post_id);
+    public PostDetailsResponse getPostDetails(String post_id){
+        PostDetailsResponse details = postClient.getPostDetails(post_id);
         return details;
+    }
+
+    public GetPostDetailsErrorResponse getPostDetailsAfterDelete(String post_id){
+        GetPostDetailsErrorResponse postExpectingError = postClient.getPostExpectingError(post_id);
+        return postExpectingError;
+    }
+
+    public DeletePostResponse shouldDeletePost(String post_id){
+        DeletePostResponse deletePostResponse = postClient.deletePost(post_id);
+        return deletePostResponse;
     }
 }

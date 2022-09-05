@@ -1,7 +1,9 @@
 package com.dummy.api.post;
 
 import com.dummy.api.post.create.PostCreateRequestBody;
-import com.dummy.api.post.create.response.PostCreateResponse;
+import com.dummy.api.post.create.response.PostDetailsResponse;
+import com.dummy.api.post.delete.DeletePostResponse;
+import com.dummy.api.post.get.GetPostDetailsErrorResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -23,7 +25,24 @@ public class PostClient {
         return response;
     }
 
-    public PostCreateResponse getDetails(String id){
+    public PostDetailsResponse getPostDetails(String id){
+        Response response = getPost(id);
+
+        int statusCode = response.getStatusCode();
+        PostDetailsResponse postDetailsResponse = response.as(PostDetailsResponse.class);
+        postDetailsResponse.setStatusCode(statusCode);
+        return postDetailsResponse;
+    }
+
+    public GetPostDetailsErrorResponse getPostExpectingError(String id){
+        Response response = getPost(id);
+        int statusCode = response.getStatusCode();
+        GetPostDetailsErrorResponse postDetailsErrorResponse = response.as(GetPostDetailsErrorResponse.class);
+        postDetailsErrorResponse.setStatusCode(statusCode);
+        return postDetailsErrorResponse;
+    }
+
+    private Response getPost(String id) {
         Response response = given()
                 .contentType(ContentType.JSON)
                 .header("app-id", "6305fad76cd510050784ce73")
@@ -32,17 +51,29 @@ public class PostClient {
                 .get("https://dummyapi.io/data/v1/post/{id}");
 
         response.then().log().body();
-
-        int statusCode = response.getStatusCode();
-        PostCreateResponse postCreateResponse = response.as(PostCreateResponse.class);
-        postCreateResponse.setStatusCode(statusCode);
-        return postCreateResponse;
+        return response;
     }
 
-    public PostCreateResponse createPost(PostCreateRequestBody postCreateRequestBody) {
+    public DeletePostResponse deletePost(String id){
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("app-id", "6305fad76cd510050784ce73")
+                .pathParam("id", id)
+                .when()
+                .delete("https://dummyapi.io/data/v1/post/{id}");
+
+        response.then().log().body();
+
+        int statusCode = response.getStatusCode();
+        DeletePostResponse deletePostResponse = response.as(DeletePostResponse.class);
+        deletePostResponse.setStatusCode(statusCode);
+        return deletePostResponse;
+    }
+
+    public PostDetailsResponse createPost(PostCreateRequestBody postCreateRequestBody) {
         Response response = postCreate(postCreateRequestBody);
-        PostCreateResponse postCreateResponse = response.as(PostCreateResponse.class);
-        postCreateResponse.setStatusCode(response.getStatusCode());
-        return postCreateResponse;
+        PostDetailsResponse postDetailsResponse = response.as(PostDetailsResponse.class);
+        postDetailsResponse.setStatusCode(response.getStatusCode());
+        return postDetailsResponse;
     }
 }

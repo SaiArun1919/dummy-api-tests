@@ -5,7 +5,7 @@ import com.google.inject.Inject;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 import com.dummy.api.post.create.PostCreateRequestBody;
-import com.dummy.api.post.create.response.PostCreateResponse;
+import com.dummy.api.post.create.response.PostDetailsResponse;
 
 @Guice
 public class CreatePostForUserTests {
@@ -16,7 +16,7 @@ public class CreatePostForUserTests {
     @Test
     public void userShouldCreateAPostWithDetails() {
         PostCreateRequestBody postCreateRequestBody = new PostCreateRequestBody.Builder().build();
-        PostCreateResponse postCreateResponse = postHelper.createNewPost(postCreateRequestBody);
-        postCreateResponse.assertPostCreateDetails(postCreateRequestBody);
+        PostDetailsResponse postDetailsResponse = postHelper.createNewPost(postCreateRequestBody);
+        postDetailsResponse.assertPostCreateDetails(postCreateRequestBody);
     }
 }

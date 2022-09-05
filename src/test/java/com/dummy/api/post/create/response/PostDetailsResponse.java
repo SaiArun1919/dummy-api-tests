@@ -7,7 +7,7 @@ import org.testng.Assert;
 import java.util.List;
 
 public @Data
-class PostCreateResponse {
+class PostDetailsResponse {
     private int statusCode;
 
     private Owner owner;
