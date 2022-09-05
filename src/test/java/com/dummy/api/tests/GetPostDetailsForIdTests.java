@@ -2,7 +2,7 @@ package com.dummy.api.tests;
 
 import com.dummy.api.post.PostHelper;
 import com.dummy.api.post.create.PostCreateRequestBody;
-import com.dummy.api.post.create.response.PostCreateResponse;
+import com.dummy.api.post.create.response.PostDetailsResponse;
 import com.google.inject.Inject;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
@@ -16,10 +16,10 @@ public class GetPostDetailsForIdTests {
         @Test
         public void shouldGetPostDetailsForPostId() {
             PostCreateRequestBody postCreateRequestBody = new PostCreateRequestBody.Builder().build();
-            PostCreateResponse postCreateResponse = postHelper.createNewPost(postCreateRequestBody);
-            String id = postCreateResponse.getId();
+            PostDetailsResponse postDetailsResponse = postHelper.createNewPost(postCreateRequestBody);
+            String id = postDetailsResponse.getId();
 
-            PostCreateResponse postDetails = postHelper.getPostDetails(id);
+            PostDetailsResponse postDetails = postHelper.getPostDetails(id);
             postDetails.assertPostCreateDetails(postCreateRequestBody);
 
         }
