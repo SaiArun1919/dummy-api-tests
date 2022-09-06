@@ -1,4 +1,4 @@
-package com.dummy.api.post.get;
+package com.dummy.api.endpoints.posts.get;
 
 import lombok.Data;
 

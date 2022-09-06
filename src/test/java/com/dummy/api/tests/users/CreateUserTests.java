@@ -1,8 +1,8 @@
-package com.dummy.api.tests;
+package com.dummy.api.tests.users;
 
-import com.dummy.api.user.UserClient;
-import com.dummy.api.user.create.CreateUserRequestBody;
-import com.dummy.api.user.create.response.CreateUserResponse;
+import com.dummy.api.endpoints.users.UserClient;
+import com.dummy.api.endpoints.users.create.CreateUserRequestBody;
+import com.dummy.api.endpoints.users.create.response.CreateUserResponse;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

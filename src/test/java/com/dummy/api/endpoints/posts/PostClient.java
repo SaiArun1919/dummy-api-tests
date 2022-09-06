@@ -1,9 +1,8 @@
-package com.dummy.api.post;
+package com.dummy.api.endpoints.posts;
 
-import com.dummy.api.post.create.PostCreateRequestBody;
-import com.dummy.api.post.create.response.PostDetailsResponse;
-import com.dummy.api.post.delete.DeletePostResponse;
-import com.dummy.api.post.get.GetPostDetailsErrorResponse;
+import com.dummy.api.endpoints.posts.create.PostCreateRequestBody;
+import com.dummy.api.endpoints.posts.delete.DeletePostResponse;
+import com.dummy.api.endpoints.posts.get.GetPostDetailsErrorResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 

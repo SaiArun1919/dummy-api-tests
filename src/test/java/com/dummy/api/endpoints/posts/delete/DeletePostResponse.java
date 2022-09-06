@@ -1,4 +1,4 @@
-package com.dummy.api.post.delete;
+package com.dummy.api.endpoints.posts.delete;
 
 import lombok.Data;
 

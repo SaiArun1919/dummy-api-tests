@@ -1,7 +1,7 @@
-package com.dummy.api.user.create.response;
+package com.dummy.api.endpoints.users.create.response;
 
 
-import com.dummy.api.user.create.CreateUserRequestBody;
+import com.dummy.api.endpoints.users.create.CreateUserRequestBody;
 import lombok.Getter;
 import lombok.Setter;
 import org.testng.Assert;
