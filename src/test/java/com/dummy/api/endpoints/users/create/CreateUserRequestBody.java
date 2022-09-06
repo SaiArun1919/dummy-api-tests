@@ -1,4 +1,4 @@
-package com.dummy.api.user.create;
+package com.dummy.api.endpoints.users.create;
 
 import lombok.Getter;
 

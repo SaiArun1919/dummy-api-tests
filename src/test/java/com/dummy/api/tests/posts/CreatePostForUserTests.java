@@ -1,17 +1,10 @@
-package com.dummy.api.tests;
+package com.dummy.api.tests.posts;
 
-import com.dummy.api.post.PostHelper;
-import com.google.inject.Inject;
-import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
-import com.dummy.api.post.create.PostCreateRequestBody;
-import com.dummy.api.post.create.response.PostDetailsResponse;
+import com.dummy.api.endpoints.posts.create.PostCreateRequestBody;
+import com.dummy.api.endpoints.posts.PostDetailsResponse;
 
-@Guice
-public class CreatePostForUserTests {
-
-    @Inject
-    private PostHelper postHelper;
+public class CreatePostForUserTests extends PostTest {
 
     @Test
     public void userShouldCreateAPostWithDetails() {

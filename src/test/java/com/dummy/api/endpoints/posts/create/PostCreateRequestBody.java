@@ -1,4 +1,4 @@
-package com.dummy.api.post.create;
+package com.dummy.api.endpoints.posts.create;
 
 import lombok.Data;
 

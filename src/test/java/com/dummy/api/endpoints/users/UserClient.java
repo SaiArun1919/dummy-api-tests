@@ -1,9 +1,9 @@
-package com.dummy.api.user;
+package com.dummy.api.endpoints.users;
 
-import com.dummy.api.user.create.CreateUserRequestBody;
-import com.dummy.api.user.create.response.CreateUserErrorResponse;
-import com.dummy.api.user.create.response.CreateUserResponse;
-import com.dummy.api.user.get.GetUsersListResponse;
+import com.dummy.api.endpoints.users.create.CreateUserRequestBody;
+import com.dummy.api.endpoints.users.create.response.CreateUserErrorResponse;
+import com.dummy.api.endpoints.users.create.response.CreateUserResponse;
+import com.dummy.api.endpoints.users.get.GetUsersListResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
